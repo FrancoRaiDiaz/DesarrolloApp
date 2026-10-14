@@ -24,7 +24,8 @@ class ProductViewModel(private val repo: ProductRepository): ViewModel() {
                 id = product.id,
                 nombre = product.nombre,
                 precio = product.precio.toString(),
-                stock = product.stock.toString()
+                stock = product.stock.toString(),
+                categoria = product.categoria
             )
         }
     }
@@ -32,6 +33,8 @@ class ProductViewModel(private val repo: ProductRepository): ViewModel() {
     fun onNombreChange(v: String) { _form.update { it.copy(nombre = v) } }
     fun onPrecioChange(v: String) { _form.update { it.copy(precio = v) } }
     fun onStockChange(v: String) { _form.update { it.copy(stock = v) } }
+    fun onCategoriaChange(v: String) { _form.update { it.copy(categoria = v) } }
+
     fun limpiarError() { _form.update { it.copy(error = null) } }
 
     fun guardar(oAlFinal: () -> Unit = {}) = viewModelScope.launch {
@@ -41,9 +44,9 @@ class ProductViewModel(private val repo: ProductRepository): ViewModel() {
             val stock = f.stock.toIntOrNull() ?: throw IllegalArgumentException("Stock inválido")
 
             if (f.id == null) {
-                repo.agregar(f.nombre, precio, stock)
+                repo.agregar(f.nombre, precio, stock,f.categoria)
             } else {
-                repo.actualizar(f.id, f.nombre, precio, stock)
+                repo.actualizar(f.id, f.nombre, precio, stock,f.categoria)
             }
             editar(null)
             oAlFinal()

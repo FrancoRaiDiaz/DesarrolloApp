@@ -40,6 +40,14 @@ fun ProductDialog(
                 )
                 Spacer(Modifier.height(8.dp))
                 OutlinedTextField(
+                    value = form.categoria,
+                    onValueChange = vm::onCategoriaChange,
+                    label = { Text("Categoria") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(Modifier.height(8.dp))
+                OutlinedTextField(
                     value = form.stock,
                     onValueChange = vm::onStockChange,
                     label = { Text("Stock") },

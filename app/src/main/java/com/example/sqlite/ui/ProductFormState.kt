@@ -6,5 +6,6 @@ data class ProductFormState(
     val nombre: String = "",
     val precio: String = "",
     val stock: String = "",
+    val categoria: String = "",
     val error: String? = null
 )

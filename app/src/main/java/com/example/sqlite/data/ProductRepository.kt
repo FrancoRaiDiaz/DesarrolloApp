@@ -5,19 +5,20 @@ class ProductRepository(private val dao: ProductoDao) {
 
     val productos: Flow<List<Producto>> = dao.getAll()
 
-    suspend fun agregar(nombre: String, precio: Double, stock: Int) {
+    suspend fun agregar(nombre: String, precio: Double, stock: Int, categoria:String) {
         require(nombre.isNotBlank()) { "El nombre no puede estar vacío" }
         require(precio >= 0) { "El precio no puede ser negativo" }
         require(stock >= 0) { "El stock no puede ser negativo" }
-        dao.insert(Producto(nombre = nombre.trim(), precio = precio, stock = stock))
+        require(categoria.isNotBlank()) { "La categoria no puede estar vacío" }
+        dao.insert(Producto(nombre = nombre.trim(), precio = precio, stock = stock , categoria = categoria))
     }
 
-    suspend fun actualizar(id: Long, nombre: String, precio: Double, stock: Int) {
+    suspend fun actualizar(id: Long, nombre: String, precio: Double, stock: Int, categoria:String) {
         require(id > 0) { "Id inválido" }
         require(nombre.isNotBlank()) { "El nombre no puede estar vacío" }
         require(precio >= 0) { "El precio no puede ser negativo" }
         require(stock >= 0) { "El stock no puede ser negativo" }
-        dao.update(Producto(id = id, nombre = nombre.trim(), precio = precio, stock = stock))
+        dao.update(Producto(id = id, nombre = nombre.trim(), precio = precio, stock = stock,categoria = categoria))
     }
 
     suspend fun eliminar(product: Producto) = dao.delete(product)
