@@ -12,8 +12,8 @@ data class TrasladoEntity(
     @ColumnInfo(name = "vehiculo_id")
     val vehiculoId: Int,
 
-    @ColumnInfo(name = "destino_id")
-    val destinoId: Int,
+    @ColumnInfo(name = "destino")
+    val destino: String,
 
     @ColumnInfo(name = "km_inicio")
     val kmInicio: Double,

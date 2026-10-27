@@ -29,7 +29,7 @@ class TrasladoViewModel(
     // Registra un nuevo viaje en la base de datos local
     fun iniciarTraslado(
         vehiculoId: Int,
-        destinoId: Int,
+        destino: String,
         kmInicio: Double,
         latitud: Double?,
         longitud: Double?
@@ -37,14 +37,14 @@ class TrasladoViewModel(
         viewModelScope.launch {
             val traslado = TrasladoEntity(
                 vehiculoId = vehiculoId,
-                destinoId = destinoId,
+                destino = destino,
                 kmInicio = kmInicio,
                 latitudInicio = latitud,
                 longitudInicio = longitud,
                 timestampInicio = System.currentTimeMillis().toString()
             )
             repositorio.guardarInicioTraslado(traslado)
-            cargarTraslados() // Actualiza la lista en pantalla
+            cargarTraslados()
         }
     }
 
