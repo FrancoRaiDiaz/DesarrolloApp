@@ -31,7 +31,7 @@ fun PantallaFinalizarTraslado(
     var kmFin by remember { mutableStateOf((traslado.kmInicio + 28.0).toString()) }
     var peajeInput by remember { mutableStateOf("") }
     var listaPeajes by remember { mutableStateOf(listOf(1200.0)) }
-    var observaciones by remember { mutableStateOf("Mantenimiento preventivo equipo diálisis Fresenius.") }
+    var observaciones by remember { mutableStateOf("") }
     var mensajeError by remember { mutableStateOf("") }
 
     val scrollState = rememberScrollState()
@@ -82,20 +82,6 @@ fun PantallaFinalizarTraslado(
                             fontWeight = FontWeight.SemiBold
                         )
                     }
-                }
-
-                Box(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(11.dp))
-                        .background(Green100)
-                        .padding(horizontal = 12.dp, vertical = 6.dp)
-                ) {
-                    Text(
-                        text = "● En Línea",
-                        color = SyncGreen,
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold
-                    )
                 }
             }
         }
@@ -270,7 +256,7 @@ fun PantallaFinalizarTraslado(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(text = "Combustible (%.1fkm / 14.5 * $1.280/L):".format(diferenciaKm), color = Color(0xFF374151), fontSize = 12.sp)
-                        Text(text = "$$%.0f".format(costoCombustible), color = Color(0xFF111827), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                        Text(text = "$%.0f".format(costoCombustible), color = Color(0xFF111827), fontSize = 12.sp, fontWeight = FontWeight.Bold)
                     }
 
                     Row(
@@ -278,7 +264,7 @@ fun PantallaFinalizarTraslado(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(text = "Peajes + Gastos extras:", color = Color(0xFF374151), fontSize = 12.sp)
-                        Text(text = "$$%.0f".format(totalPeajes), color = Color(0xFF111827), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                        Text(text = "$%.0f".format(totalPeajes), color = Color(0xFF111827), fontSize = 12.sp, fontWeight = FontWeight.Bold)
                     }
 
                     HorizontalDivider(color = Color(0xFFBBF7D0))
@@ -289,7 +275,7 @@ fun PantallaFinalizarTraslado(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(text = "Costo Total Imputable a Cliente:", color = Color(0xFF15803D), fontSize = 13.sp, fontWeight = FontWeight.Bold)
-                        Text(text = "$$%.0f".format(costoTotal), color = Color(0xFF15803D), fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
+                        Text(text = "$%.0f".format(costoTotal), color = Color(0xFF15803D), fontSize = 16.sp, fontWeight = FontWeight.ExtraBold)
                     }
                 }
             }

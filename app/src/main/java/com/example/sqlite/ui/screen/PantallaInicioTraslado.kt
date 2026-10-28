@@ -26,9 +26,9 @@ fun PantallaInicioTraslado(
     viewModel: TrasladoViewModel,
     onVolver: () -> Unit
 ) {
-    var vehiculoId by remember { mutableStateOf("1") }
-    var destino by remember { mutableStateOf("Clínica Sanatorio Alemán (Concepción)") }
-    var kmInicio by remember { mutableStateOf("124850") }
+    var vehiculoId by remember { mutableStateOf("") }
+    var destino by remember { mutableStateOf("") }
+    var kmInicio by remember { mutableStateOf("") }
     var mensajeError by remember { mutableStateOf("") }
 
     val scrollState = rememberScrollState()
@@ -193,38 +193,6 @@ fun PantallaInicioTraslado(
                         unfocusedContainerColor = Color.White
                     )
                 )
-            }
-
-            // Photo Capture placeholder
-            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text(
-                    text = "FOTO DEL TABLERO (OPCIONAL EN OFFLINE)",
-                    color = Color(0xFF334155),
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(70.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(Slate50)
-                        .border(1.dp, Slate300, RoundedCornerShape(10.dp)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(2.dp)
-                    ) {
-                        Text(text = "📷", fontSize = 18.sp)
-                        Text(
-                            text = "Capturar Foto del Odómetro",
-                            color = Blue600,
-                            fontSize = 12.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
-                }
             }
 
             // Offline Warning Box

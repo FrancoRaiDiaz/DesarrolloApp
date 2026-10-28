@@ -204,70 +204,8 @@ fun PantallaTrasladoEnCurso(
                 }
             }
 
-            // Quick Actions Header
-            Text(
-                text = "REGISTRAR OCURRENCIA EN RUTA",
-                color = Color(0xFF334155),
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold
-            )
 
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                Card(
-                    modifier = Modifier
-                        .weight(1f)
-                        .height(65.dp)
-                        .shadow(2.dp, RoundedCornerShape(12.dp)),
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
-                    border = BorderStroke(1.dp, Slate200)
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(12.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Text(text = "🛣️", fontSize = 18.sp)
-                        Column {
-                            Text(text = "Agregar Peaje", color = Slate900, fontSize = 12.sp, fontWeight = FontWeight.Bold)
-                            Text(text = "Registrar cobro", color = Slate600, fontSize = 10.sp)
-                        }
-                    }
-                }
 
-                Card(
-                    modifier = Modifier
-                        .weight(1f)
-                        .height(65.dp)
-                        .shadow(2.dp, RoundedCornerShape(12.dp)),
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
-                    border = BorderStroke(1.dp, Slate200)
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(12.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Text(text = "🅿️", fontSize = 18.sp)
-                        Column {
-                            Text(text = "Estacionamiento", color = Slate900, fontSize = 12.sp, fontWeight = FontWeight.Bold)
-                            Text(text = "Adjuntar ticket", color = Slate600, fontSize = 10.sp)
-                        }
-                    }
-                }
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Big End Trip CTA Button
             Button(
                 onClick = onIrAFinalizar,
                 modifier = Modifier
